@@ -23,6 +23,10 @@ const addTodo = () => {
 
 }
 
+const removeTodo = (todo) => {
+  todos.value = todos.value.filter(t => t !== todo)
+}
+
 </script>
 
 <template>
@@ -59,6 +63,7 @@ const addTodo = () => {
         </div>
 
         <input type="submit" value="Add Todo" />
+      
       </form>
     </section>
 
@@ -72,9 +77,9 @@ const addTodo = () => {
         <div class="todo_content">
           <input type="text" v-model="todo.content" />
         </div>
-        
-        
-        
+        <div class="actions">
+          <button class="delete" @click="removeTodo(todo)">Delete</button>
+        </div>
         </div>
       </div>
     </section>
